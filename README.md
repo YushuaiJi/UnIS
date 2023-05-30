@@ -1,12 +1,12 @@
 # AutoIS
-Java code for paper "A Learned Framework for Fast Indexing and Queries over Multi-Dimensional Data"
+Java code for paper "A Learned Framework for Fast Indexing and Queries over Multi-Dimensional Data".
 ## Introduction
 
 This repo holds the source code and scripts for reproducing the key experiments of our paper: A Learned Framework for Fast Indexing and Queries over Multi-Dimensional Data.
 
 ## Datasets
 
-All dataset are contained in our repo and the path is:AutoIS/src/test/java/Dataset
+All dataset are contained in our repo and the path is:AutoIS/src/test/java/Dataset.
 
 T-drive        https://dl.acm.org/doi/10.1145/1869790.1869807
 
@@ -36,7 +36,7 @@ Next, use the command "mvn -Dtest=YourTestClass#yourTestMethod test" to test the
 
 1 You can run the following `Construction_AutoIS` function to obtain the runtime of index construction.
 
-2 You can run the following `AutoIS_MemoryUsage` function to obtain the memoryusge of index construction. AutoIS_Tree_Depth
+2 You can run the following `AutoIS_MemoryUsage` function to obtain the memoryusge of index construction. AutoIS_Tree_Depth.
 
 3:You can run the following `AutoIS_Tree_Depth` function to obtain the treedepth of index construction.
 
@@ -56,7 +56,7 @@ Then you should go to `src/test/java/Auto_Selection/Verification.java`
 
 ## Terminal
 
-After you run the command, you will generate the csv file. It will show our experiments result.
+After you run the command, you will generate the csv file. It will show our experiment results.
 
 
 
