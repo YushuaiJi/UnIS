@@ -1,5 +1,5 @@
 # AutoIS
-MATLAB code for paper "A Learned Framework for Fast Indexing and Queries over Multi-Dimensional Data"
+Java code for paper "A Learned Framework for Fast Indexing and Queries over Multi-Dimensional Data"
 ## Introduction
 
 This repo holds the source code and scripts for reproducing the key experiments of our paper: A Learned Framework for Fast Indexing and Queries over Multi-Dimensional Data.
@@ -32,7 +32,7 @@ If you want use cmd to run the test, you should navigate to the root directory o
 
 Next, use the command "mvn -Dtest=YourTestClass#yourTestMethod test" to test the desired function.
 
-##Fast Index Construction
+## Fast Index Construction
 
 1 You can run the following `Construction_AutoIS` function to obtain the runtime of index construction.
 
