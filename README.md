@@ -50,7 +50,7 @@ You should go to the `src/test/java/Auto_Selection/LightweightAutokNN.java` firs
 
 2 You should use the Predition.py to train the prediction model.
 
-Then you should go to 'src/test/java/Auto_Selection/Verification.java'
+Then you should go to `src/test/java/Auto_Selection/Verification.java`
 
 3 You can choose what you want to verificate and choose one you like.
 
