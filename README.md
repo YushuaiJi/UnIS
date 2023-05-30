@@ -56,7 +56,7 @@ Then you should go to `src/test/java/Auto_Selection/Verification.java`
 
 ## Terminal
 
-After you run the command, you will generate the csv file. It will show our experiment results.
+After you run the command, you will generate the csv files. It will show our experiment results.
 
 
 
