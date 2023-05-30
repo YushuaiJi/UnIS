@@ -38,7 +38,7 @@ Next, use the command "mvn -Dtest=YourTestClass#yourTestMethod test" to test the
 
 2 You can run the following `AutoIS_MemoryUsage` function to obtain the memoryusge of index construction. AutoIS_Tree_Depth
 
-3:You can run the following `AutoIS_Tree_Depth` function to obtain the memoryusge of index construction.
+3:You can run the following `AutoIS_Tree_Depth` function to obtain the treedepth of index construction.
 
 If you want use 
 
@@ -48,7 +48,7 @@ You should go to the `src/test/java/Auto_Selection/LightweightAutokNN.java` firs
 
 1 You can run the following `kNN_Ground_Truth_Generation`  or `Range_query_ground_truth` generate the query ground truth.
 
-2 You should use the Predition.py to train the prediction model.
+2 You should use the `Predition.py` to train the prediction model.
 
 Then you should go to `src/test/java/Auto_Selection/Verification.java`
 
