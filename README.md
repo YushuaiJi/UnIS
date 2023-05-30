@@ -1,4 +1,4 @@
-# F3KM-MATLAB
+# AutoIS
 MATLAB code for paper "A Learned Framework for Fast Indexing and Queries over Multi-Dimensional Data"
 ## Introduction
 
