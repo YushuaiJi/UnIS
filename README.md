@@ -54,7 +54,9 @@ Then you should go to `src/test/java/Auto_Selection/Verification.java`
 
 3 You can choose what you want to verificate and choose one you like.
 
+## Terminal
 
+After you run the command, you will generate the csv file. It will show our experiments result.
 
 
 
