@@ -1,4 +1,5 @@
-[2afd4675389fcbc7868444c9acec263](https://github.com/YushuaiJi/AutoIS/assets/52951960/fd8b6d8e-5a42-470a-982b-72c824f2da74)
+## ![2afd4675389fcbc7868444c9acec263](https://github.com/YushuaiJi/AutoIS/assets/52951960/804e620f-ab85-454a-a98b-8ea108d6abc8)
+
 
 Java code for paper "A Learned Framework for Fast Indexing and Queries over Multi-Dimensional Data".
 ## Introduction
