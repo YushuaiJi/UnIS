@@ -1,7 +1,7 @@
 ## ![2afd4675389fcbc7868444c9acec263](https://github.com/YushuaiJi/AutoIS/assets/52951960/804e620f-ab85-454a-a98b-8ea108d6abc8)
 
 
-Java code for paper "A Learned Framework for Fast Indexing and Queries over Multi-Dimensional Data".
+## A Learned Framework for Fast Indexing and Queries over Multi-Dimensional Data.
 ## Introduction
 
 This repo holds the source code and scripts for reproducing the key experiments of our paper: A Learned Framework for Fast Indexing and Queries over Multi-Dimensional Data.
