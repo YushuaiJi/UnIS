@@ -8,7 +8,7 @@ This repo holds the source code and scripts for reproducing the key experiments 
 
 ## Datasets
 
-All dataset are contained in our repo and the path is:AutoIS/src/test/java/Dataset.
+All datasets can be acquired via the web we list.
 
 T-drive        https://dl.acm.org/doi/10.1145/1869790.1869807
 
