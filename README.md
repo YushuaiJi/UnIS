@@ -42,7 +42,7 @@ Next, use the command "mvn -Dtest=YourTestClass#yourTestMethod test" to test the
 
 3:You can run the code in `AutoIS_Tree_Depth` to obtain the tree depth of index construction.
 
-## Auto-selection algorithm
+## Auto-selection Algorithm
 
 You should go to the `src/test/java/Auto_Selection/LightweightAutokNN.java` first.
 
