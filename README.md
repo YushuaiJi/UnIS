@@ -24,11 +24,11 @@ Next, use the command "mvn -Dtest=YourTestClass#yourTestMethod test" to test the
 
 ## Fast Index Construction
 
-1 You can run the code in `Construction_AutoIS` to obtain the runtime of index construction.
+1 You can run the code in `test_construction_UnIS` to obtain the runtime of index construction.
 
-2 You can run the code in `AutoIS_MemoryUsage` to obtain the memory usage of index construction. AutoIS_Tree_Depth.
+2 You can run the code in `UnIS_MemoryUsage` to obtain the memory usage of index construction. AutoIS_Tree_Depth.
 
-3:You can run the code in `AutoIS_Tree_Depth` to obtain the tree depth of index construction.
+3:You can run the code in `UnIS_Tree_Depth` to obtain the tree depth of index construction.
 
 ## Auto-selection Algorithm
 
