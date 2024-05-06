@@ -1,30 +1,18 @@
  ![24749ca9797ed91113b69a4e12e7acd](https://github.com/YushuaiJi/UnIS/assets/52951960/93822ffc-6f7e-4423-950c-2c8eb3853356)
 
 
-### A Learned Framework for Fast Indexing and Queries over Multi-Dimensional Data.
+### A Unified Index for Exact Search over Multi-source Vectors in Autonomous Vehicles.
 ## Introduction
 
-This repo holds the source code and scripts for reproducing the key experiments of our paper: A Learned Framework for Fast Indexing and Queries over Multi-Dimensional Data.
+This repo holds the source code and scripts for reproducing the key experiments of our paper: A Unified Index for Exact Search over Multi-source Vectors in Autonomous Vehicles.
 
 ## Datasets
 
 All datasets can be acquired via the web we list.
 
-T-drive        https://dl.acm.org/doi/10.1145/1869790.1869807
+Argoverse     https://www.argoverse.org/index.html
 
-Proto           https://figshare.com/articles/dataset/Porto_taxi_trajectories/12302165
-
-3D-RD         https://networkrepository.com/3D-spatial-network.php
-
-ShapeNet     https://shapenet.org/
-
-Conflong       https://networkrepository.com/ConfLongDemo-JSI.php
-
-NYC    http://www.nyc.gov/html/tlc/html/technology/data.shtml
-
-HT Sensor (HS)       https://archive.ics.uci.edu/ml/datasets/Gas+sensors+for+home+activity+monitoring
-
-KEGG        https://archive.ics.uci.edu/ml/datasets/Individual+household+electric+power+consumption
+Apolloscope   https://apolloscape.auto/
 
 ## Usage
 
