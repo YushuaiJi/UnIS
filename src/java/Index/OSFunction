@@ -1,0 +1,299 @@
+package Index;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.*;
+import java.util.LinkedList;
+import java.util.Vector;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class OSFuntion {
+    public static LinkedList<double[]> Max_Min_value(HyperPoint[] hp){
+        LinkedList<double[]> list = new LinkedList<>();
+        int k = hp[0].getK();
+        double[] max = new double[k];
+        double[] min = new double[k];
+        for(int i=0;i<k;i++){
+            max[i] = Double.MIN_VALUE;
+            min[i] = Double.MAX_VALUE;
+        }
+
+        for(int i=0;i<hp.length;i++){
+            for(int j=0;j<k;j++){
+                if(hp[i].getcoords()[j] >max[j]) max[j] =hp[i].getcoords()[j];
+                if(hp[i].getcoords()[j] <min[j]) min[j] =hp[i].getcoords()[j];
+            }
+        }
+        list.add(min);
+        list.add(max);
+        return list;
+    }
+
+    public static HyperPoint[] ReadData(String address, int size) throws IOException {
+        Vector<HyperPoint> points = new Vector<>();
+        FileReader fileReader = new FileReader(address);
+        BufferedReader buffReader = new BufferedReader(fileReader);
+        String s = null;
+        int count = 0;
+        while (buffReader.ready()) {
+            if(count == size) break;
+            count++;
+            String tmp= buffReader.readLine()+s;
+            String[] arr = tmp.split(",");
+            double[] tmp_p = new double[arr.length];
+            for(int i=0;i<arr.length;i++){
+                if(i == arr.length-1){
+                    double loc = Double.parseDouble(arr[i].substring(0, arr[i].length() - 4));
+                    tmp_p[i] = loc;
+                }else{
+                    double loc = Double.parseDouble(arr[i]);
+                    tmp_p[i] = loc;
+                }
+            }
+            HyperPoint p = new HyperPoint(tmp_p);
+            points.add(p);
+        }
+        //System.out.print(points.size()+"\n");
+        HyperPoint[] sample = new HyperPoint[points.size()];
+        for(int i=0;i<points.size();i++) {
+            sample[i] = points.get(i);
+        }
+        return sample;
+    }
+
+    public static HyperPoint[] ReadFileData(String address, int FileNumber,int count) throws IOException {
+        HyperPoint[] point = new HyperPoint[count];
+        count = 0;
+        for(int j=0;j<FileNumber;j++){
+            String csv_address = address+j+".csv";
+            FileReader fileReader = new FileReader(csv_address);
+            BufferedReader buffReader = new BufferedReader(fileReader);
+            String s = null;
+            while (buffReader.ready()) {
+                String tmp= buffReader.readLine()+s;
+                String[] arr = tmp.split(",");
+                double[] tmp_p = new double[arr.length];
+                for(int i=0;i<arr.length;i++){
+                    if(i == arr.length-1){
+                        double loc = Double.parseDouble(arr[i].substring(0, arr[i].length() - 4));
+                        tmp_p[i] = loc;
+                    }else{
+                        double loc = Double.parseDouble(arr[i]);
+                        tmp_p[i] = loc;
+                    }
+                }
+                HyperPoint p = new HyperPoint(tmp_p);
+                point[count++] = p;
+            }
+            System.out.print("success eat data "+j+"\n");
+        }
+        return point;
+    }
+
+    public static HyperPoint[] ReadFixedData(int len,HyperPoint[] data){
+        HyperPoint[] new_data = new HyperPoint[len];
+        for(int i=0;i<len;i++){
+            new_data[i] = data[i];
+        }
+        return new_data;
+    }
+
+    public static HyperPoint[] ReadFileFixedData(String address, int FileNumber,int count) throws IOException {
+        HyperPoint[] point = new HyperPoint[count];
+        int anchor = 0;
+        for(int j=0;j<FileNumber;j++){
+            String csv_address = address+j+".csv";
+            FileReader fileReader = new FileReader(csv_address);
+            BufferedReader buffReader = new BufferedReader(fileReader);
+            String s = null;
+            while (buffReader.ready()) {
+                String tmp= buffReader.readLine()+s;
+                String[] arr = tmp.split(",");
+                double[] tmp_p = new double[arr.length];
+                for(int i=0;i<arr.length;i++){
+                    if(i == arr.length-1){
+                        double loc = Double.parseDouble(arr[i].substring(0, arr[i].length() - 4));
+                        tmp_p[i] = loc;
+                    }else{
+                        double loc = Double.parseDouble(arr[i]);
+                        tmp_p[i] = loc;
+                    }
+                }
+                HyperPoint p = new HyperPoint(tmp_p);
+                point[anchor++] = p;
+                if(point[point.length-1] != null) return point;
+            }
+            //System.out.print("eats file"+j+"\n");
+        }
+       // System.out.print("wrong");
+        return point;
+    }
+
+    public static HyperPoint[] ReadData(String address,int count,int test_number) throws IOException {
+        HyperPoint[] point = null;
+        if(test_number<count) point = new HyperPoint[test_number];
+        else  point = new HyperPoint[count];
+        count = 0;
+        int count1 = 0;
+        FileReader fileReader = new FileReader(address);
+        BufferedReader buffReader = new BufferedReader(fileReader);
+        String s = null;
+
+        while (buffReader.ready()) {
+            count1++;
+            if(count1 > test_number) break;
+            String tmp= buffReader.readLine()+s;
+            String[] arr = tmp.split(",");
+            double[] tmp_p = new double[arr.length];
+            for(int i=0;i<arr.length;i++){
+                if(i == arr.length-1){
+                    double loc = Double.parseDouble(arr[i].substring(0, arr[i].length() - 4));
+                    tmp_p[i] = loc;
+                }else{
+                    double loc = Double.parseDouble(arr[i]);
+                    tmp_p[i] = loc;
+                }
+            }
+            HyperPoint p = new HyperPoint(tmp_p);
+            point[count++] = p;
+        }
+        return point;
+    }
+
+    public static int ReadFileDataNumber(String address, int FileNumber) throws IOException {
+        int count = 0;
+        for(int j=0;j<FileNumber;j++){
+            String csv_address = address+j+".csv";
+            FileReader fileReader = new FileReader(csv_address);
+            BufferedReader buffReader = new BufferedReader(fileReader);
+            String s = null;
+            while (buffReader.ready()) {
+                buffReader.readLine();
+                count++;
+            }
+        }
+        System.out.print("DataNumber: "+count+"\n");
+        return count;
+    }
+
+    public static int ReadFileDataNumber(String address) throws IOException {
+        int count = 0;
+        FileReader fileReader = new FileReader(address);
+        BufferedReader buffReader = new BufferedReader(fileReader);
+        while (buffReader.ready()) {
+            buffReader.readLine();
+            count++;
+        }
+        System.out.print("DataNumber: "+count+"\n");
+        return count;
+    }
+
+    public static void CSVPorcess1(String inputFilePath,String outputFilePath){
+        double subtractionValue = 315971499.0; // 减去的值
+        double scaleFactor = 10000000.0; // 放大的倍数
+
+        try (BufferedReader br = new BufferedReader(new FileReader(inputFilePath));
+             BufferedWriter bw = new BufferedWriter(new FileWriter(outputFilePath))) {
+
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(","); // 假设CSV文件使用逗号作为分隔符
+
+                if (values.length >= 1) {
+                    double originalValue = Double.parseDouble(values[0]);
+                    double newValue = ( (originalValue - subtractionValue) * scaleFactor);
+
+                    // 将新值写入输出文件
+                    bw.write(String.valueOf(newValue));
+
+                    // 如果CSV文件还有其他列，将它们写入输出文件
+                    for (int i = 1; i < values.length; i++) {
+                        bw.write("," + values[i]);
+                    }
+
+                    bw.newLine(); // 写入新行
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        String csvFile = "src/test/Trajectory_data_point/output0.csv"; // 替换为你的CSV文件路径
+
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(csvFile));
+            int rowCount = 0;
+
+            // 逐行读取CSV文件
+            while (br.readLine() != null) {
+                rowCount++;
+            }
+
+            br.close();
+
+            System.out.println("CSV文件中的行数为: " + rowCount);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static double[][] Competitor_ReadData(String address, int number) throws IOException {
+        Vector<double[]> points = new Vector<>();
+        FileReader fileReader = new FileReader(address);
+        BufferedReader buffReader = new BufferedReader(fileReader);
+        String s = null;
+        int count = 0;
+        while (buffReader.ready()) {
+            if(count == number) break;
+            count++;
+            String tmp= buffReader.readLine()+s;
+            String[] arr = tmp.split(",");
+            double[] tmp_p = new double[arr.length];
+            for(int i=0;i<arr.length;i++){
+                if(i == arr.length-1){
+                    double loc = Double.parseDouble(arr[i].substring(0, arr[i].length() - 4));
+                    tmp_p[i] = loc;
+                }else{
+                    double loc = Double.parseDouble(arr[i]);
+                    tmp_p[i] = loc;
+                }
+            }
+            points.add(tmp_p);
+        }
+        //System.out.print(points.size()+"\n");
+        double[][] sample = new double[points.size()][points.get(0).length];
+        for(int i=0;i<points.size();i++){
+            sample[i] = points.get(i);
+        }
+        return sample;
+    }
+
+    public static void SavetoCSV(long[][] datalog,String address) throws IOException {
+        File fout = new File(address);
+        FileOutputStream fos = new FileOutputStream(fout);
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
+
+        for(int i = 0; i < datalog.length; i++) {
+            for(int j=0;j<datalog[0].length;j++){
+                String s = datalog[i][j]+"";
+                if(j == datalog[0].length-1) bw.write(s);
+                else bw.write(s+",");
+            }
+            bw.newLine();
+        }
+        bw.close();
+    }
+}
