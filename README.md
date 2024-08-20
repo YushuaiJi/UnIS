@@ -16,6 +16,28 @@ Apolloscope   https://apolloscape.auto/
 
 We separately obtained the POI data, map data, point cloud data, and trajectory embeddings from these two datasets. Notably, the trajectory embeddings were obtained by embedding the varying-length trajectories into 256-dimensional vectors using an embedding model.
 
+## Competitors
+
+#### [Balanced KD-tree](https://arxiv.org/pdf/1410.5420)
+
+- Balanced KD-tree iteratively divides the space using splitting hyperplanes determined by the median along each dimension.
+- We build the tree by pre-sorting the dataset in each dimension.
+
+#### [Batch-Dynamic KD-tree](https://arxiv.org/pdf/2112.06188)
+
+- Batch-Dynamic KD-tree is constructed by partitioning the dataset into subsets and then building a balanced multi-way KD-tree for each subset.
+- The partition number of a balanced multi-way KD-tree is determined based on the AEPL-optimal criterion. Both \( k \)NN and radius searches traverse all trees, and the results are subsequently consolidated.
+
+#### [iKD-tree](https://arxiv.org/abs/2102.10808)
+
+- iKD-tree improves query efficiency via parallel queries and result merging and ensures insertion efficiency by rebalancing sub-trees using the scapegoat strategy.
+
+#### [``AI+R''-tree](https://ieeexplore.ieee.org/abstract/document/9861112)
+
+- ``AI+R''-tree uses the ML model to improve the R-tree's query efficiency, which identifies the space that needs to be traversal.
+- To meet the exact search requirement, we use the random forest \cite{SuZ06} to select spaces that may contain target vectors. We first search the spaces likely to contain the target vectors, followed by searching the remaining spaces.
+    
+
 ## Usage
 
 If you run in IntelliJ, just go to "src/test/java" and click on the test you want. I have listed all the experiments.
@@ -63,6 +85,7 @@ We support different types of queries, including $k$NN queries and radius search
 |        MBR       |        BFS          |       Lemma 1      | 
 |        MBB       |        DFS          |       Lemma 2      | 
 |        MBB       |        BFS          |       Lemma 1      | 
+
 ## Auto-selection Algorithm
 
 You should go to the `src/test/java/Auto_Selection/LightweightAutokNN.java` first.
