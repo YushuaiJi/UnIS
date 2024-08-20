@@ -28,6 +28,14 @@ Next, use the command "mvn -Dtest=YourTestClass#yourTestMethod test" to test the
 
 1 You can run the code in `test_construction_UnIS` to obtain the runtime of index construction.
 
+Construction the index has four construction method (shown in `test_construction_UnIS`), as shown below:
+```
+`model=1` constructs the index using `insertBySorting`, which presorts the data in each dimension.
+`model=2` constructs the index using `insertByQuantileFindingLearnedIndex`, which applies the method proposed in the paper.
+`model=3` constructs the index using `insertBySorting_Self_Partition`, which applies presorting without allocating additional arrays for data storage.
+`model=4` constructs the index using `insertBySorting_Self_Partition_learned`, which applies the proposed method without allocating additional arrays for data storage.
+```
+
 2 You can run the code in `UnIS_MemoryUsage` to obtain the memory usage of index construction. AutoIS_Tree_Depth.
 
 3:You can run the code in `UnIS_Tree_Depth` to obtain the tree depth of index construction.
