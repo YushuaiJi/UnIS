@@ -45,6 +45,7 @@ The index construction has four methods (as shown in `test_construction_UnIS`), 
 We support different types of queries, including $k$NN queries and radius search.
 
 1：$k$NN queries
+
 `kNN` in `src/java/Index/UnIS` allows you to query by simply inputting the point and the value of $k$. We provide four different query methods, each composed of distinct traversal methods and bounding technologies, and each employing different pruning techniques (see Section 2 in our paper).
 | __Traversal Method__ | __Bounding Technology__ | __Pruning Technology__ |
 |-------------|------------|------------|
@@ -52,6 +53,16 @@ We support different types of queries, including $k$NN queries and radius search
 |        MBR       |        BFS          |       Lemma 2      | 
 |        MBB       |        DFS          |       Lemma 1      | 
 |        MBB       |        BFS          |       Lemma 3      | 
+
+1：Radius Search
+
+`Radius_Search` in `src/java/Index/UnIS` allows you to query by simply inputting the point and the search radius $r$. We provide four different query methods, and each pruning method is shown as the following table (see Section 2 in our paper).
+| __Traversal Method__ | __Bounding Technology__ | __Pruning Technology__ |
+|-------------|------------|------------|
+|        MBR       |        DFS          |       Lemma 2      | 
+|        MBR       |        BFS          |       Lemma 1      | 
+|        MBB       |        DFS          |       Lemma 2      | 
+|        MBB       |        BFS          |       Lemma 1      | 
 ## Auto-selection Algorithm
 
 You should go to the `src/test/java/Auto_Selection/LightweightAutokNN.java` first.
