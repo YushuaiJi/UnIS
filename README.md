@@ -1,10 +1,10 @@
  ![24749ca9797ed91113b69a4e12e7acd](https://github.com/YushuaiJi/UnIS/assets/52951960/93822ffc-6f7e-4423-950c-2c8eb3853356)
 
 
-### A Unified Index for Exact Search over Multi-source Vectors in Autonomous Vehicles.
+### Towards Fast Exact Search over Multi-source Vectors in Autonomous Vehicles.
 ## Introduction
 
-This repo holds the source code and scripts for reproducing the key experiments of our paper: A Unified Index for Exact Search over Multi-source Vectors in Autonomous Vehicles.
+This repo holds the source code and scripts for reproducing the key experiments of our paper: Towards Fast Exact Search over Multi-source Vectors in Autonomous Vehicles.
 
 ## Datasets
 
@@ -66,7 +66,7 @@ The index construction has four methods (as shown in `test_construction_UnIS`), 
 
 We support different types of queries, including $k$NN queries and radius search.
 
-1：$k$NN queries
+#### kNN queries
 
 `kNN` in `src/java/Index/UnIS` allows you to query by simply inputting the point and the value of $k$. We provide four different query methods, each composed of distinct traversal methods and bounding technologies, and each employing different pruning techniques (see Section 2 in our paper).
 | __Traversal Method__ | __Bounding Technology__ | __Pruning Technology__ |
@@ -76,7 +76,7 @@ We support different types of queries, including $k$NN queries and radius search
 |        MBB       |        DFS          |       Lemma 1      | 
 |        MBB       |        BFS          |       Lemma 3      | 
 
-1：Radius Search
+#### Radius Search
 
 `Radius_Search` in `src/java/Index/UnIS` allows you to query by simply inputting the point and the search radius $r$. We provide four different query methods, and each pruning method is shown as the following table (see Section 2 in our paper).
 | __Traversal Method__ | __Bounding Technology__ | __Pruning Technology__ |
@@ -86,7 +86,11 @@ We support different types of queries, including $k$NN queries and radius search
 |        MBB       |        DFS          |       Lemma 2      | 
 |        MBB       |        BFS          |       Lemma 1      | 
 
-## Auto-selection Algorithm
+## Insertion
+
+You can use `insert` to insert vectors, where the input should be in the form of a linked list of vectors, represented as `List<HyperPoint> p`.
+
+## Auto-selection Model
 
 You should go to the `src/test/java/Auto_Selection/LightweightAutokNN.java` first.
 
