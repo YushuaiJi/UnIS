@@ -46,8 +46,8 @@ We support different types of queries, including $k$NN queries and radius search
 
 1：$k$NN queries
 `kNN` in `src/java/Index/UnIS` allows you to query by simply inputting the point and the value of $k$. We provide four different query methods, each composed of distinct traversal methods and bounding technologies, and each employing different pruning techniques (see Section 2 in our paper).
-
-| Traversal Method | Bounding Technology | Pruning Technology |
+| __Traversal Method__ | __Bounding Technology__ | __Pruning Technology__ |
+|-------------|------------|------------|
 |        MBR       |        DFS          |       Lemma 1      | 
 |        MBR       |        BFS          |       Lemma 2      | 
 |        MBB       |        DFS          |       Lemma 1      | 
