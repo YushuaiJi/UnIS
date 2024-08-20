@@ -14,6 +14,8 @@ Argoverse     https://www.argoverse.org/index.html
 
 Apolloscope   https://apolloscape.auto/
 
+We separately obtained the POI data, map data, point cloud data, and trajectory embeddings from these two datasets. Notably, the trajectory embeddings were obtained by embedding the varying-length trajectories into 256-dimensional vectors using an embedding model.
+
 ## Usage
 
 If you run in IntelliJ, just go to "src/test/java" and click on the test you want. I have listed all the experiments.
