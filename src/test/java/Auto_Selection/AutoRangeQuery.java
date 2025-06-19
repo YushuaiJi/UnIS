@@ -19,11 +19,11 @@ public class AutoRangeQuery {
         String[] address = new String[1];
         //address[0] = "src/test/java/Dataset/1_2d_T_drive_No_duplication.txt";
         //address[0] = "src/test/java/Dataset/2_2d_Porto_No_duplication.txt";
-        //address[0] = "src/test/java/Dataset/3_3d_spatial_network.txt";//一三快
-        //address[0] = "src/test/java/Dataset/4_3d_Snapenet_new.txt"; //一二快
-        //address[0] = "src/test/java/Dataset/5_3d_ConfLongDemo_JSI.txt"; //三快
+        //address[0] = "src/test/java/Dataset/3_3d_spatial_network.txt";//
+        //address[0] = "src/test/java/Dataset/4_3d_Snapenet_new.txt"; //
+        //address[0] = "src/test/java/Dataset/5_3d_ConfLongDemo_JSI.txt"; //
         //address[0] = "src/test/java/Dataset/6_4d_NYC_10M_transition_edit.txt";
-        //address[0] = "src/test/java/Dataset/7_5d_Phones_accelerometer_new.txt"; //三四差不多
+        //address[0] = "src/test/java/Dataset/7_5d_Phones_accelerometer_new.txt"; //
         //address[0] = "src/test/java/Dataset/8_11d_HT_Sensor_dataset.txt";
         address[0] = "src/test/java/Dataset/10_24d_KEGG_Metabolic.txt";
         for(int i=0;i<address.length;i++){
@@ -34,7 +34,7 @@ public class AutoRangeQuery {
         int sample_size = ReadDataAmount(address);
         int dim = ReadDim(address);
         int train_size = 50000;
-        //double[][] data_log = new double[train_size*3][dim+2];//数据集+分类类型+数据占比
+        //double[][] data_log = new double[train_size*3][dim+2];//
         Vector<LinkedList<Double>> log = Range_query_data(address,sample_size,train_size);
         int training_perenct = (int)(log.size()*0.8);
         //double[][] log = kNNdata(address,sample_size,train_size);
