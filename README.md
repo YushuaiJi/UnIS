@@ -1,41 +1,32 @@
  ![24749ca9797ed91113b69a4e12e7acd](https://github.com/YushuaiJi/UnIS/assets/52951960/93822ffc-6f7e-4423-950c-2c8eb3853356)
 
 
-### Towards Fast Exact Search over Multi-source Vectors in Autonomous Vehicles.
+### Updatable Balanced Index for Fast On-device Search with Auto-selection Model.
 ## Introduction
 
-This repo holds the source code and scripts for reproducing the key experiments of our paper: Towards Fast Exact Search over Multi-source Vectors in Autonomous Vehicles.
+This repo holds the source code and scripts for reproducing the key experiments of our paper: Updatable Balanced Index for Fast On-device Search with Auto-selection Model.
 
 ## Datasets
 
 All datasets can be acquired via the web we list.
 
-Argoverse     https://www.argoverse.org/index.html
+ArgoPOI    [ https://www.argoverse.org/index.html](https://www.argoverse.org/index.html)
 
-Apolloscope   https://apolloscape.auto/
+ArgoAVL   [https://apolloscape.auto/](https://www.argoverse.org/index.html)
+
+Porto     [https://www.argoverse.org/index.html](https://figshare.com/articles/dataset/Porto_taxi_trajectories/12302165)
+
+Shapenet   [https://apolloscape.auto/](https://shapenet.org/)
+
+T-drive    [ https://www.argoverse.org/index.html](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/T-Drive-20Driving20Directions20Based20on20Taxi20Traces.pdf)
+
+ArgoPC  [ https://apolloscape.auto/](https://www.argoverse.org/index.html)
+
+Apollo     [https://www.argoverse.org/index.html](https://apolloscape.auto/)
+
+ArgoTraj   [https://apolloscape.auto/](https://www.argoverse.org/index.html)
 
 We separately obtained the POI data, map data, point cloud data, and trajectory embeddings from these two datasets. Notably, the trajectory embeddings were obtained by embedding the varying-length trajectories into 256-dimensional vectors using an embedding model.
-
-## Competitors
-
-#### [Balanced KD-tree](https://arxiv.org/pdf/1410.5420)
-
-- Balanced KD-tree iteratively divides the space using splitting hyperplanes determined by the median along each dimension.
-- We build the tree by pre-sorting the dataset in each dimension.
-
-#### [Batch-Dynamic KD-tree](https://arxiv.org/pdf/2112.06188)
-
-- Batch-Dynamic KD-tree is constructed by partitioning the dataset into subsets and then building a balanced multi-way KD-tree for each subset.
-- The partition number of a balanced multi-way KD-tree is determined based on the AEPL-optimal criterion. Both \( k \)NN and radius searches traverse all trees, and the results are subsequently consolidated.
-
-#### [iKD-tree](https://arxiv.org/abs/2102.10808)
-
-- iKD-tree improves query efficiency via parallel queries and result merging and ensures insertion efficiency by rebalancing sub-trees using the scapegoat strategy.
-
-#### [``AI+R''-tree](https://ieeexplore.ieee.org/abstract/document/9861112)
-
-- ``AI+R''-tree uses the ML model to improve the R-tree's query efficiency, which identifies the space that needs to be traversal.
-- To meet the exact search requirement, we use the random forest \cite{SuZ06} to select spaces that may contain target vectors. We first search the spaces likely to contain the target vectors, followed by searching the remaining spaces.
     
 
 ## Usage
