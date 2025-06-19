@@ -12,9 +12,8 @@ import static RMI.RMI.*;
 
 public class UnIS {
     IndexNode root;
-    int K = 2;
+    int K = 3;
     double RANGE = 1.0;
-    // HyperPoint min, max are determined the range of N-KDTree Space
     HyperPoint min, max;
     int capacity = 50;
 
