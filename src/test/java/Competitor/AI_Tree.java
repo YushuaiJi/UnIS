@@ -27,7 +27,6 @@ public class AI_Tree {
     @Test
     public void Construction_LearnIndex_time_test() throws IOException {
         String[] address = new String[8];
-        //gas sensor没法用
         address[0] = "src/test/java/Dataset/1_2d_T_drive_No_duplication.txt";
         address[1] = "src/test/java/Dataset/2_2d_Porto_No_duplication.txt";
         address[2] = "src/test/java/Dataset/3_3d_spatial_network.txt";
@@ -49,7 +48,7 @@ public class AI_Tree {
         for(int i=0;i<address.length;i++){
             sample_pop[i] = ReadDataAmount(address[i]);
         }
-        long[][] data_log = new long[address.length][sample_ratio.length];//数据集+分类类型+数据占比
+        long[][] data_log = new long[address.length][sample_ratio.length];//
 
         for(int i = 0;i<address.length;i++){
             long[] log = Construction_tree(i,address,sample_ratio,sample_pop[i]);
