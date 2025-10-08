@@ -87,6 +87,15 @@ We support different types of queries, including $k$NN queries and radius search
 |        MBB       |        DFS          |       Lemma 2      | 
 |        MBB       |        BFS          |       Lemma 1      | 
 
+It is worth noting that, as discussed in the paper, our MBB-based approach outperforms the MBR-based one. For simplicity and clarity of implementation, we provide the search strategies based on MBB in the released code.
+
+`model=1` performs radius search using the DFS strategy, implemented in `Radius_Search_DFS_MBB`. 
+This method explores the index tree recursively and visits nodes in a depth-first manner based on their bounding volumn.
+
+`model=2` performs radius search using the BFS strategy, implemented in `Radius_Search_BFS_MBB`. 
+This method explores the index tree level by level, maintaining a queue to iteratively expand nodes whose the bounding volumn intersect with the search radius.
+
+
 ## Insertion
 
 You can use `insert` to insert vectors, where the input should be in the form of a linked list of vectors, represented as `List<HyperPoint> p`.
