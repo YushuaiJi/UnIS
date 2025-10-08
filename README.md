@@ -39,7 +39,7 @@ We separately obtained the POI data, map data, point cloud data, and trajectory 
 
 ## Fast Index Construction
 
-1 You can run the code in `test_construction_UnIS` to obtain the runtime of index construction.
+1. You can run the code in `test_construction_UnIS` to obtain the runtime of index construction.
 
 The index construction has four methods (as shown in `test_construction_UnIS`), which are listed below:
 ```
@@ -52,9 +52,9 @@ The index construction has four methods (as shown in `test_construction_UnIS`), 
 `model=4` constructs the index using `insertBySorting_Self_Partition_learned`, which applies the proposed method without allocating additional arrays for data storage.
 ```
 
-2 You can run the code in `UnIS_MemoryUsage` to obtain the memory usage of index construction. 
+2. You can run the code in `UnIS_MemoryUsage` to obtain the memory usage of index construction. 
 
-3:You can run the code in `UnIS_Tree_Depth` to obtain the tree depth of index construction.
+3. You can run the code in `UnIS_Tree_Depth` to obtain the tree depth of index construction.
 
 ## Queries
 
@@ -107,15 +107,15 @@ You can use `insert` to insert vectors, where the input should be in the form of
 
 You should go to the `src/test/java/Auto_Selection/LightweightAutokNN.java` first.
 
-1 You can run the following `kNN_Ground_Truth_Generation`  or `Range_query_ground_truth` to generate the query ground truth.
+- You can run the following `kNN_Ground_Truth_Generation`  or `Range_query_ground_truth` to generate the query ground truth.
 
-2 You should use the `Predition.ipynb` to train the prediction model.
+- You should use the `Predition.ipynb` to train the prediction model.
 
 Load all the train data and test data you get from the first step and run all the cells to get the prediction result.
 
 Then you should go to `src/test/java/Auto_Selection/Verification.java`
 
-3 You can choose what you want to verification and choose one you like.
+- You can choose what you want to verification and choose one you like.
 
 ## Terminal
 
