@@ -109,7 +109,7 @@ You should go to the `src/test/java/Auto_Selection/LightweightAutokNN.java` firs
 
 1 You can run the following `kNN_Ground_Truth_Generation`  or `Range_query_ground_truth` to generate the query ground truth.
 
-2 You should use the `Predition.py` to train the prediction model.
+2 You should use the `Predition.ipynb` to train the prediction model.
 
 Then you should go to `src/test/java/Auto_Selection/Verification.java`
 
