@@ -35,7 +35,7 @@ We separately obtained the POI data, map data, point cloud data, and trajectory 
 
 - If you want use cmd to run the test, you should navigate to the root directory of the Maven project, which is the directory containing the pom.xml file. Next, use the command "mvn -Dtest=YourTestClass#yourTestMethod test" to test the desired function.
 
-- If you run in other platforms (We run the comparative experiment on robot car), just pack the java project and load all the ".jar" files you get into the platform you want. Next, open the terminal and input "java -cp .:yourPackageName-tests.jar:yourPackageName.jar:junit-4.13.2.jar:hamcrest-core-1.3.jar org.junit.runner.JUnitCore yourTestMethod" to test the desired function
+- If you run in other platforms (We run the comparative experiment on **mobile robot car**), just pack the java project and load all the ".jar" files you get into the platform you want. Next, open the terminal and input "java -cp .:yourPackageName-tests.jar:yourPackageName.jar:junit-4.13.2.jar:hamcrest-core-1.3.jar org.junit.runner.JUnitCore yourTestMethod" to test the desired function.
 
 ## Fast Index Construction
 
