@@ -67,6 +67,16 @@ We support different types of queries, including $k$NN queries and radius search
 |        MBB       |        DFS          |       Lemma 1      | 
 |        MBB       |        BFS          |       Lemma 3      | 
 
+
+`model=1` performs DFS based on the MBR-based traversal traversal using `get_all_nearest_points`.
+
+`model=2` performs DFS with MBB-based pruning, implemented in `get_all_nearest_points_ball`.
+
+`model=3` performs BFS using MBR-based traversal, implemented in `get_all_nearest_points_BFS_MBR`.
+
+`model=4` performs BFS using MBB-based traversal, implemented in `get_all_nearest_points_BFS_MBB`.
+
+
 #### Radius Search
 
 `Radius_Search` in `src/java/Index/UnIS` allows you to query by simply inputting the point and the search radius $r$. We provide four different query methods, and each pruning method is shown as the following table (see Section 2 in our paper).
