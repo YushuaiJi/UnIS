@@ -854,6 +854,54 @@ public class UnIS {
         }
     }
 
+    public static void Radius_Search_BFS_MBB(IndexNode r, double radius, Set<HyperPoint> res,
+                                         int[] count, HyperPoint p, long[] delta_T, long t,
+                                         List<Long> Max_Bound) {
+    if (r == null) return;
+
+    // BFS queue
+    java.util.ArrayDeque<IndexNode> q = new java.util.ArrayDeque<>();
+    q.add(r);
+
+    while (!q.isEmpty()) {
+        // time checkpoint (mimic DFS behavior)
+        long dt = System.currentTimeMillis() - t;
+        if (Max_Bound.size() < delta_T.length && dt > delta_T[Max_Bound.size()]) {
+            Max_Bound.add(res.isEmpty() ? 0L : (long) res.size());
+        }
+
+        IndexNode cur = q.poll();
+        if (cur == null) continue;
+
+        // prune by node-to-point lower bound distance
+        double mindis = MINDIST(cur.hs, p);
+        if (mindis > radius) continue;
+
+        if (cur.isleaf) {
+            // visit points in the leaf
+            count[0] += cur.empty_id;
+            for (int i = 0; i < cur.empty_id; i++) {
+                if (p.distanceTo(cur.hp[i]) <= radius) {
+                    res.add(cur.hp[i]);
+                }
+            }
+        } else {
+            // enqueue children that may intersect the radius ball
+            for (int i = 0; i < cur.children.length; i++) {
+                IndexNode child = cur.children[i];
+                if (child != null) {
+                    // Optional early pruning before enqueue to reduce queue size
+                    double childMin = MINDIST(child.hs, p);
+                    if (childMin <= radius) {
+                        q.add(child);
+                    }
+                }
+            }
+        }
+    }
+}
+
+
     public static double MINDIST(HyperSpace hs, HyperPoint p) {
         if (hs.K != p.K)
             throw new IllegalArgumentException("");
@@ -868,7 +916,7 @@ public class UnIS {
         return dis;
     }
 
-    public List<Long> Radius_Search(int model,int[] count,HyperPoint p, double radius){
+    public List<Long> Radius_Search(int model,int[] count,HyperPoint p, double radius, int model){
         Set<HyperPoint> res = new HashSet<HyperPoint>();
         List<Long> Max_Bound = new ArrayList<>();
         long t = System.currentTimeMillis();
@@ -880,8 +928,11 @@ public class UnIS {
         delta_T[4] = 500;
         switch(model){
             case 1:
-                //dfs mbr
+                //dfs mbb
                 Radius_Search_DFS_MBB(root, radius,res,count,p,delta_T,t,Max_Bound);break;
+            case 2:
+                //bfs mbb
+                Radius_Search_BFS_MBB(root, radius,res,count,p,delta_T,t,Max_Bound);break;  
         }
         while(Max_Bound.size() < delta_T.length){
             Max_Bound.add((long)res.size());
@@ -1093,3 +1144,4 @@ public class UnIS {
 
 
 }
+
