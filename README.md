@@ -111,6 +111,8 @@ You should go to the `src/test/java/Auto_Selection/LightweightAutokNN.java` firs
 
 2 You should use the `Predition.ipynb` to train the prediction model.
 
+Load all the train data and test data you get from the first step and run all the cells to get the prediction result.
+
 Then you should go to `src/test/java/Auto_Selection/Verification.java`
 
 3 You can choose what you want to verification and choose one you like.
