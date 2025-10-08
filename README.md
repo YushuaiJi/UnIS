@@ -44,8 +44,11 @@ Next, use the command "mvn -Dtest=YourTestClass#yourTestMethod test" to test the
 The index construction has four methods (as shown in `test_construction_UnIS`), which are listed below:
 ```
 `model=1` constructs the index using `insertBySorting`, which presorts the data in each dimension.
+
 `model=2` constructs the index using `insertByQuantileFindingLearnedIndex`, which applies the method proposed in the paper.
+
 `model=3` constructs the index using `insertBySorting_Self_Partition`, which applies presorting without allocating additional arrays for data storage.
+
 `model=4` constructs the index using `insertBySorting_Self_Partition_learned`, which applies the proposed method without allocating additional arrays for data storage.
 ```
 
@@ -67,7 +70,7 @@ We support different types of queries, including $k$NN queries and radius search
 |        MBB       |        DFS          |       Lemma 1      | 
 |        MBB       |        BFS          |       Lemma 3      | 
 
-
+```
 `model=1` performs DFS based on the MBR-based traversal traversal using `get_all_nearest_points`.
 
 `model=2` performs DFS with MBB-based pruning, implemented in `get_all_nearest_points_ball`.
@@ -75,7 +78,7 @@ We support different types of queries, including $k$NN queries and radius search
 `model=3` performs BFS using MBR-based traversal, implemented in `get_all_nearest_points_BFS_MBR`.
 
 `model=4` performs BFS using MBB-based traversal, implemented in `get_all_nearest_points_BFS_MBB`.
-
+```
 
 #### Radius Search
 
@@ -88,13 +91,13 @@ We support different types of queries, including $k$NN queries and radius search
 |        MBB       |        BFS          |       Lemma 1      | 
 
 It is worth noting that, as discussed in the paper, our MBB-based approach outperforms the MBR-based one. For simplicity and clarity of implementation, we provide the search strategies based on MBB in the released code.
-
+```
 `model=1` performs radius search using the DFS strategy, implemented in `Radius_Search_DFS_MBB`. 
 This method explores the index tree recursively and visits nodes in a depth-first manner based on their bounding volumn.
 
 `model=2` performs radius search using the BFS strategy, implemented in `Radius_Search_BFS_MBB`. 
 This method explores the index tree level by level, maintaining a queue to iteratively expand nodes whose the bounding volumn intersect with the search radius.
-
+```
 
 ## Insertion
 
